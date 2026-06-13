@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/project/ml_service/mlruns/996814638059294988/ab3d620a8bbf4328ab631426c884ba05/artifacts
+end_time: 1778942300280
+entry_point_name: ''
+experiment_id: '996814638059294988'
+lifecycle_stage: active
+run_id: ab3d620a8bbf4328ab631426c884ba05
+run_name: loud-newt-228
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778942300183
+status: 3
+tags: []
+user_id: Bhavana

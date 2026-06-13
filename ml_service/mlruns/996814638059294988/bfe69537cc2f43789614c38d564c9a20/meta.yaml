@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/project/ml_service/mlruns/996814638059294988/bfe69537cc2f43789614c38d564c9a20/artifacts
+end_time: 1778942143943
+entry_point_name: ''
+experiment_id: '996814638059294988'
+lifecycle_stage: active
+run_id: bfe69537cc2f43789614c38d564c9a20
+run_name: clean-bird-851
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778942143797
+status: 3
+tags: []
+user_id: Bhavana

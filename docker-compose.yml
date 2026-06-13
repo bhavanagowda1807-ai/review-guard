@@ -1,0 +1,98 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: reviews_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7.4-alpine
+    ports:
+      - "6379:6379"
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.19.0
+    command: mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri sqlite:////mlflow/mlflow.db --default-artifact-root /mlflow/artifacts
+    volumes:
+      - mlflow_data:/mlflow
+    ports:
+      - "5000:5000"
+
+  backend:
+    build: ./backend
+    depends_on: [db, redis, mlflow, ml_inference]
+    ports:
+      - "8000:8000"
+    volumes:
+      - static_uploads:/app/static/uploads
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@db:5432/reviews_db
+      - REDIS_URL=redis://redis:6379/0
+      - SECRET_KEY=change-me
+      - ML_SERVICE_URL=http://ml_inference:8501
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - INITIAL_ADMIN_USERNAME=admin
+      - INITIAL_ADMIN_PASSWORD=adminpass
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=5).read()"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  worker:
+    build: ./backend
+    depends_on: [redis, ml_inference]
+    command: celery -A app.celery_worker.celery_app worker --loglevel=INFO
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@db:5432/reviews_db
+      - REDIS_URL=redis://redis:6379/0
+      - SECRET_KEY=change-me
+      - ML_SERVICE_URL=http://ml_inference:8501
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+
+  ml_inference:
+    build: ./ml_service
+    depends_on: [mlflow]
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./ml_service/saved_models:/app/saved_models:rw
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - LOAD_DEEP_MODELS=false
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8501/health', timeout=5).read()"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@reviewguard.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+    restart: unless-stopped
+
+
+volumes:
+  pgdata:
+  mlflow_data:
+  static_uploads:

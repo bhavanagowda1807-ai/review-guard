@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/project/ml_service/mlruns/996814638059294988/e9f7503598b545ce8d9302b83f1dec5f/artifacts
+end_time: 1778942218601
+entry_point_name: ''
+experiment_id: '996814638059294988'
+lifecycle_stage: active
+run_id: e9f7503598b545ce8d9302b83f1dec5f
+run_name: capable-kite-369
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778942218482
+status: 3
+tags: []
+user_id: Bhavana

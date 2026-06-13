@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/project/ml_service/mlruns/996814638059294988/bbdf2803fd06414eb1232e3f144efefe/artifacts
+end_time: 1778942175536
+entry_point_name: ''
+experiment_id: '996814638059294988'
+lifecycle_stage: active
+run_id: bbdf2803fd06414eb1232e3f144efefe
+run_name: capable-eel-885
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778942175427
+status: 3
+tags: []
+user_id: Bhavana

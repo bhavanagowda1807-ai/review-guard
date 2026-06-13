@@ -1,0 +1,10 @@
+artifact_location: file:///c:/project/ml_service/mlruns/996814638059294988/models/m-04907bbcee01472b9ee53d3a5f4df4aa/artifacts
+creation_timestamp: 1778931336115
+experiment_id: '996814638059294988'
+last_updated_timestamp: 1778931343774
+model_id: m-04907bbcee01472b9ee53d3a5f4df4aa
+model_type: null
+name: fusion_classifier
+source_run_id: null
+status: 2
+status_message: null

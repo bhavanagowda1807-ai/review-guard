@@ -1,0 +1,10 @@
+artifact_location: file:///c:/project/ml_service/mlruns/996814638059294988/models/m-02b5e9bc5f774e95b0944c95305c1d2d/artifacts
+creation_timestamp: 1778942131531
+experiment_id: '996814638059294988'
+last_updated_timestamp: 1778942143758
+model_id: m-02b5e9bc5f774e95b0944c95305c1d2d
+model_type: null
+name: text_classifier
+source_run_id: null
+status: 2
+status_message: null

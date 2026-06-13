@@ -1,0 +1,10 @@
+artifact_location: file:///c:/project/ml_service/mlruns/996814638059294988/models/m-808141069c6b4431ab682ab1a452688d/artifacts
+creation_timestamp: 1778942166871
+experiment_id: '996814638059294988'
+last_updated_timestamp: 1778942175381
+model_id: m-808141069c6b4431ab682ab1a452688d
+model_type: null
+name: metadata_classifier
+source_run_id: null
+status: 2
+status_message: null

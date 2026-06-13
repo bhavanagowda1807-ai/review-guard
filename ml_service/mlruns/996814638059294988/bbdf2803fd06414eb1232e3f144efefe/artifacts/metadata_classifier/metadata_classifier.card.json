@@ -1,0 +1,47 @@
+{
+  "module": "metadata_classifier",
+  "created_at": "2026-05-16T14:36:06.759203+00:00",
+  "metrics": {
+    "accuracy": 1.0,
+    "roc_auc": 1.0,
+    "report": {
+      "0": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 35.0
+      },
+      "1": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 5.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 40.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 40.0
+      }
+    }
+  },
+  "feature_names": [
+    "account_age",
+    "reviews_per_day",
+    "verified_purchase_ratio",
+    "rating_deviation",
+    "burstiness",
+    "helpfulness_ratio"
+  ],
+  "label_semantics": {
+    "0": "genuine",
+    "1": "fake"
+  }
+}

@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/project/ml_service/mlruns/996814638059294988/79547423049e46dfb1c5e333411b29c8/artifacts
+end_time: 1778931343914
+entry_point_name: ''
+experiment_id: '996814638059294988'
+lifecycle_stage: active
+run_id: 79547423049e46dfb1c5e333411b29c8
+run_name: casual-fox-129
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778931343805
+status: 3
+tags: []
+user_id: Bhavana

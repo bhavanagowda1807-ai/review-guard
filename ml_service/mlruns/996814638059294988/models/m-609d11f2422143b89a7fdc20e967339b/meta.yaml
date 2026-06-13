@@ -1,0 +1,10 @@
+artifact_location: file:///c:/project/ml_service/mlruns/996814638059294988/models/m-609d11f2422143b89a7fdc20e967339b/artifacts
+creation_timestamp: 1778942210299
+experiment_id: '996814638059294988'
+last_updated_timestamp: 1778942218429
+model_id: m-609d11f2422143b89a7fdc20e967339b
+model_type: null
+name: image_classifier
+source_run_id: null
+status: 2
+status_message: null

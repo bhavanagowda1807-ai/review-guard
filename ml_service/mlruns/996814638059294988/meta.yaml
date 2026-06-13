@@ -1,0 +1,8 @@
+artifact_location: file:///c:/project/ml_service/mlruns/996814638059294988
+creation_time: 1778931335002
+experiment_id: '996814638059294988'
+last_update_time: 1778931335002
+lifecycle_stage: active
+name: multimodal_fake_review_detection
+trace_location: null
+workspace: default

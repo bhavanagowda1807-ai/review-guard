@@ -1,0 +1,29 @@
+            async def bounded_inference(text, rating, meta, label_verdict):
+                async with semaphore:
+                    ml = await run_inference(client, text, rating, meta)
+                    ai_verdict = ml.get("verdict")
+                    confidence = ml.get("confidence")
+                    genuine_prob = ml.get("genuine_probability")
+                    verdict = label_verdict if label_verdict else ai_verdict
+                    
+                    # CRITICAL: Ensure metadata_features is ALWAYS present
+                    if ml:
+                        # Start with meta dict (even if all None)
+                        ml["metadata_features"] = {k: v for k, v in meta.items() if v is not None}
+                        # If still empty after filtering Nones, set all to 0.5 as default
+                        if not ml["metadata_features"]:
+                            ml["metadata_features"] = {
+                                "account_age": 0.5,
+                                "reviews_per_day": 0.5,
+                                "verified_purchase_ratio": 0.5,
+                                "rating_deviation": 0.5,
+                                "burstiness": 0.5,
+                                "helpfulness_ratio": 0.5,
+                                "similarity_score": 0.5,
+                                "sentiment_rating_mismatch": 0.5,
+                                "night_review_ratio": 0.5,
+                                "reviewer_overlap_score": 0.5,
+                            }
+                    
+                    reasoning = _build_reasoning(ml) if ml else None
+                    return (text, rating, verdict, confidence, genuine_prob, ml.get("fusion_strategy"), reasoning)
