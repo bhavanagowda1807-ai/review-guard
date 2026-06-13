@@ -1,3 +1,4 @@
+
 # Multimodal Fake Review Detection System
 
 Full-stack research-oriented system for detecting fake e-commerce reviews with text, image, metadata, late-fusion, and attention-based multimodal scoring.
@@ -172,4 +173,3 @@ Training artifacts:
 - `/model-card` lists saved model cards and artifacts from `ml_service/saved_models`.
 - CI is configured in `.github/workflows/ci.yml` for Python compile/tests and frontend build.
 
-See `docs/architecture.md` for the module layout and extension points.
